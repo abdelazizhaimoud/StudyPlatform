@@ -21,8 +21,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'age',
+        'sexe',
+        'address',
+        'phone_number',
+        'bio',
+        'profile_picture',
+        'role_id',
     ];
 
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -41,8 +50,11 @@ class User extends Authenticatable
     protected function casts(): array
     {
         return [
-            'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function groups(){
+        return $this->belongsToMany(Group::class);
     }
 }
