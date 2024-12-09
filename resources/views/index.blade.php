@@ -47,8 +47,9 @@
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html">
+            <span><img src="{{asset('images/Logo.svg')}}" style="margin-right: 15px;" width="120px" alt=""></span>
             <span>
-              Feane
+              ISGI <span style="color:#00d26a">Connect</span>
             </span>
           </a>
 
