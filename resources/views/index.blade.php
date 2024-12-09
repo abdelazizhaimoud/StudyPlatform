@@ -76,10 +76,10 @@
               
               
               
-              <a href="" class="order_online">
+              <a href="{{ route('signup') }}" class="order_online">
                 Sign up
               </a>
-              <a href="" class="order_online2" style="background-color: rgba(red, green, blue,0);">
+              <a href="{{route('login')}}" class="order_online2" style="background-color: rgba(red, green, blue,0);">
                 Login
               </a>
             </div>
