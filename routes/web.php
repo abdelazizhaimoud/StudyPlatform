@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\dashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
 })->name('index');
+Route::get('/dashboard',[dashboardController::class,'dashboard'])->name('dashboard');
 
 Route::get('/login',[loginController::class,'login'])->name('login');
 Route::get('/signup',[loginController::class,'signup'])->name('signup');

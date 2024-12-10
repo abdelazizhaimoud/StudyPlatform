@@ -15,6 +15,7 @@ class loginController extends Controller
     public function signup(){
         return view('signup');
     }
+    
     public function register(Request $request){
         $form_register =$request->validate([
             'username' => 'required|string|max:50|unique:users,username',
@@ -39,7 +40,17 @@ class loginController extends Controller
         $password  = $request->password ;
         $informations = ['email' => $email , 'password' => $password];
         if(Auth::attempt($informations)){
-            return to_route('index');
+
+            $user = Auth::user();
+
+            // Pass user details to the dashboard
+            session([
+                'name' => $user->name,
+                'email' => $user->email,
+                'profile_picture' => $user->profile_picture,
+            ]);
+            
+            return to_route('dashboard');
         }
         else{
           return redirect()->back()->with('error', 'Invalid email or password. Please try again.');
