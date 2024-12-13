@@ -13,8 +13,8 @@ class dashboardController extends Controller
         $first_name = $request -> session()->get('first_name');
         $last_name = $request -> session()->get('last_name');
         $profile_picture = $request -> session()->get('profile_picture');
-        if($email == null){
-            return redirect(route('login'));
+        if(!$request->session()->has('email')){
+            return to_route('login');
         }
         else{
             return view('dashboard',compact('email','first_name','last_name','profile_picture'));

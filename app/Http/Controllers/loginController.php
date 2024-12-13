@@ -9,11 +9,21 @@ use Illuminate\Support\Facades\Hash;
 
 class loginController extends Controller
 {
-    public function login(){
-        return view('login');
+    public function login(Request $request){
+        if($request->session()->has('email')){
+            return redirect('/dashboard');
+        }
+        else{
+            return view('login');
+        }
     }
-    public function signup(){
-        return view('signup');
+    public function signup(Request $request){
+        if($request->session()->has('email')){
+            return redirect('/dashboard');
+        }
+        else{
+            return view('signup');
+        }
     }
     
     public function register(Request $request){
@@ -51,7 +61,7 @@ class loginController extends Controller
                 'email' => $user->email,
                 'profile_picture' => $user->profile_picture,
             ]);
-            
+            // dd('asdf');
             return to_route('dashboard');
         }
         else{
