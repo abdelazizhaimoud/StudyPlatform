@@ -77,7 +77,7 @@
 										</a>
 										<a href="#">
 											<div class="notif-img"> 
-												<img src="{{asset('images/profile2.jpg')}}" alt="Img Profile">
+												<img src="{{asset('storage/'.$profile_picture)}}" alt="Img Profile">
 											</div>
 											<div class="notif-content">
 												<span class="block">
