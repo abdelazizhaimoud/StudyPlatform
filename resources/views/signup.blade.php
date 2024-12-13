@@ -67,10 +67,10 @@
                             @enderror
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" name="name" class="form-control form-control-lg bg-light fs-6" placeholder="Full Name" required>
-                            @error('name')
-                            <p class="text-danger">{{$message}}</p>
-                            @enderror
+                            <input type="text" name="first_name" class="form-control form-control-lg bg-light fs-6" placeholder="First Name" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="last_name" class="form-control form-control-lg bg-light fs-6" placeholder="Last Name" required>
                         </div>
                         <div class="input-group mb-3">
                             <input type="email" name="email" class="form-control form-control-lg bg-light fs-6" placeholder="Email Address" required>
@@ -119,20 +119,16 @@
                             @enderror
                         </div>
                         <div class="input-group mb-3">
-                            <select name="role_id" class="form-select form-select-lg bg-light fs-6" required>
-                                <option value="" disabled selected>Select Role</option>
-                                <option value="1">Student</option>
-                                <option value="2">Teacher</option>
-                            </select>
-                            @error('role_id')
-                            <p class="text-danger">{{$message}}</p>
-                            @enderror
-                        </div>
-                        <div class="input-group mb-3">
                             <textarea name="bio" class="form-control form-control-lg bg-light fs-6" rows="3" placeholder="Short Bio" required></textarea>
                             @error('bio')
                             <p class="text-danger">{{$message}}</p>
                             @enderror
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="school" class="form-control form-control-lg bg-light fs-6" placeholder="school" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="sector" class="form-control form-control-lg bg-light fs-6" placeholder="sector" required>
                         </div>
                         <div class="input-group mb-3">
                             <input type="file" name="profile_picture" class="form-control form-control-lg bg-light fs-6" accept="image/*">

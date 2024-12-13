@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('description');
             $table->string('status');
             $table->dateTime('duration');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('group_id')->constrained('groups')->onDelete('cascade');
             $table->timestamps();
         });
         //

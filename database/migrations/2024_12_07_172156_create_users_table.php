@@ -19,6 +19,7 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->boolean('email_verified')->default(false);
             $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
@@ -29,7 +30,7 @@ return new class extends Migration
             $table->text('bio');
             $table->string('school');
             $table->string('sector');
-            $table->foreignId('file_id')->constrained('files')->onDelete('cascade');
+            $table->string('profile_picture');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -42,4 +43,10 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+
+
+
+
+
 };

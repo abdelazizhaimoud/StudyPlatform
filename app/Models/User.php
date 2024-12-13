@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -18,19 +19,20 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
         'email',
         'password',
-        'username',
+        'first_name',
+        'last_name',
         'age',
         'sexe',
         'address',
         'phone_number',
         'bio',
+        'school',
+        'sector',
         'profile_picture',
-        'role_id',
     ];
-
     
     /**
      * The attributes that should be hidden for serialization.
@@ -47,14 +49,29 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'password' => 'hashed',
-        ];
+    // protected function casts(): array
+    // {
+        
+    // }
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = Hash::make($value);
     }
 
     public function groups(){
         return $this->belongsToMany(Group::class);
     }
+
+    public function tasks(){
+        return $this->hasMany(Task::class);
+    }
+
+    public function resources(){
+        return $this->hasMany(Resource::class);
+    }
+
+    public function friends(){
+        return $this->belongsToMany(User::class, 'friends', 'user_id', 'friend_id');
+    }
+
 }
