@@ -14,10 +14,8 @@ return new class extends Migration
         //
         Schema::create('resources',function(Blueprint $table){
             $table->id();
-            $table->string('file_name');
-            $table->string('file_path');
-            $table->string('uploaded_by');
-            $table->integer('group_id');
+            $table->string('name');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

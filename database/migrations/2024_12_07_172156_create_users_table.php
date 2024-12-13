@@ -19,15 +19,18 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('email')->unique();
+            $table->boolean('email_verified')->default(false);
             $table->string('password');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->integer('age');
             $table->string('sexe');
             $table->text('address');
             $table->string('phone_number')->unique();
             $table->text('bio');
+            $table->string('school');
+            $table->string('sector');
             $table->string('profile_picture');
-            $table->integer('role_id');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -40,4 +43,10 @@ return new class extends Migration
     {
         Schema::dropIfExists('users');
     }
+
+
+
+
+
+
 };

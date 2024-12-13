@@ -10,6 +10,9 @@ Route::get('/', function () {
 Route::get('/dashboard',[dashboardController::class,'dashboard'])->name('dashboard');
 
 Route::get('/login',[loginController::class,'login'])->name('login');
+Route::post('/login',[loginController::class,'signin'])->name('signin');
 Route::get('/signup',[loginController::class,'signup'])->name('signup');
 Route::post('/signup',[loginController::class,'register'])->name('register');
-Route::post('/login',[loginController::class,'signin'])->name('signin');
+
+// Route::post('/logout',[loginController::class],'logout')->name('logout');
+Route::post('/logout',[loginController::class,'logout'])->name('logout');
