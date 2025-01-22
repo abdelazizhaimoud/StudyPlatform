@@ -90,7 +90,7 @@
                             <p class="text-danger">{{$message}}</p>
                             @enderror
                         </div>
-                        <div class="input-group mb-3">
+                        {{-- <div class="input-group mb-3">
                             <select name="sexe" class="form-select form-select-lg bg-light fs-6" required>
                                 <option value="" disabled selected>Select Sex</option>
                                 <option value="male">Male</option>
@@ -132,11 +132,11 @@
                         </div>
                         <div class="input-group mb-3">
                             <input type="file" name="profile_picture" class="form-control form-control-lg bg-light fs-6" accept="image/*">
-                        </div>
+                        </div> --}}
                         @if(session('error'))
                             <p class="text-danger"> {{ session('error') }}</p>
                         @endif
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-3 " style="padding-left:80%;margin-bottom : 0px;">
                             <button class="btn btn-lg btn-success w-100 fs-6">Sign Up</button>
                         </div>
                     </form>
